@@ -17,7 +17,7 @@ export const Config = v.object({
       v.object(
         {
           enable: v.optional(v.boolean(), true),
-          initial_value: v.optional(v.string(), "feat"),
+          initial_value: v.optional(v.string(), "fountain"),
           infer_type_from_branch: v.optional(v.boolean(), true),
           append_emoji_to_label: v.optional(v.boolean(), false),
           append_emoji_to_commit: v.optional(v.boolean(), false),
