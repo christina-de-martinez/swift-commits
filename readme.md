@@ -1,43 +1,27 @@
-<h3 align="center">
+<div style="margin-top: 30px">
+<h1 align="center">
+Swift Commits
 
-![bc-gradient](https://github.com/Everduin94/better-commits/assets/14320878/2f94e6ea-a40f-4f3e-b0b2-5cc7d83a9a7d)
+[![swift commits is enabled](https://img.shields.io/badge/swift--commits-enabled?style=for-the-badge&logo=git&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41)](https://github.com/christina-de-martinez/swift-commits)
+[![downloads](https://img.shields.io/npm/dt/swift-commits.svg?style=for-the-badge&logo=npm&color=74c7ec&logoColor=D9E0EE&labelColor=302D41)](https://www.npmjs.com/package/swift-commits)
 
-[![better commits is enabled](https://img.shields.io/badge/better--commits-enabled?style=for-the-badge&logo=git&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41)](https://github.com/Everduin94/better-commits)
-[![downloads](https://img.shields.io/npm/dt/better-commits.svg?style=for-the-badge&logo=npm&color=74c7ec&logoColor=D9E0EE&labelColor=302D41)](https://www.npmjs.com/package/better-commits)
-[![discord](https://img.shields.io/badge/discord-join--discord?style=for-the-badge&logo=discord&color=cba6f7&logoColor=D9E0EE&labelColor=302D41)](https://discord.gg/grHVnZwYup)
-
-</h3>
+</h1>
+</div>
 
 <p align="center">
-A CLI for writing even better commits, following the conventional commits specification, with a Swiftie twist.
+A CLI for writing even better commits, with a Swiftie twist.
 </p>
-
-https://github.com/Everduin94/better-commits/assets/14320878/8fb15d46-17c4-4e5d-80d9-79abe0a2a00a
 
 ## ✨ Features
 
-- Generate conventional commits through a series of prompts
-- Highly configurable with sane defaults
-- Infers ticket and commit-type from branch for consistent & fast commits
-- Consistent branch creation with flexible workflow hooks via `better-branch`
-- Interactive git status/add on commit
-- Preview commit messages in color
-- Support for git emojis per commit-type
-- Configure globally or per repository
-- Config validation and error messaging
-- [Lightweight](https://bundlejs.com/?q=better-commits&treeshake=%5B*%5D) (17kb)
-
-As a side-effect of formatting messages
-
-- Auto populate PR title / body
-- Automate semantic releases
-- Automate changelogs
-- Automatically link & close related tickets / issues
+- Choose between [quill, fountain pen, or glitter gel pen](https://youtu.be/xMy8ZGlKf1U?si=kFeh3DoaALLQu3DN&t=276) commit scopes
+- Select how you feel about your code and get an assigned lyric as the commit message
+- Only for true Swifties
 
 ## 📦 Installation
 
 ```sh
-npm install -g better-commits
+npm install -g swift-commits
 ```
 
 ## 🚀 Usage
@@ -45,9 +29,9 @@ npm install -g better-commits
 When you're ready to commit. To run the CLI in your terminal:
 
 ```sh
-better-commits
+swift-commits
 # or
-npx better-commits
+npx swift-commits
 ```
 
 It will prompt a series of questions. These prompts will build a commit message, which you can preview, before confirming the commit.
@@ -59,7 +43,7 @@ To better understand these prompts and their intention, read [Conventional Commi
 
 ### Global
 
-Your first time running `better-commits`, a default config will be generated in your `$HOME` directory, named `.better-commits.json`
+Your first time running `swift-commits`, a default config will be generated in your `$HOME` directory, named `.better-commits.json`
 
 - This config will be used if a repository-specific config cannot be found.
 
@@ -90,29 +74,29 @@ Better-commits (& better-branch) are highly flexible with sane defaults. These o
   "check_status": true,
   "commit_type": {
     "enable": true,
-    "initial_value": "fountain",
+    "initial_value": "feat",
     "infer_type_from_branch": true,
     "append_emoji_to_label": false,
     "append_emoji_to_commit": false,
     "options": [
       {
+        "value": "quill",
+        "label": "quill",
+        "hint": "Makes you feel 'all old fashioned, like you’re a 19th century poet crafting your next sonnet by candlelight'",
+        "emoji": "🪶",
+        "trailer": "Changelog: quill pen",
+      },
+      {
         "value": "fountain",
         "label": "fountain",
-        "hint": "modern personal stories, written like poetry, about those moments you remember all too well",
+        "hint": "'Modern, personal stories written like poetry'",
         "emoji": "🖋️",
         "trailer": "Changelog: fountain pen",
       },
       {
-        "value": "quill",
-        "label": "quill",
-        "hint": "make you feel all old fashioned, like you’re a 19th century poet crafting your next sonnet by candlelight",
-        "emoji": "🪶",
-        "trailer": "Changelog: quill",
-      },
-      {
         "value": "glitter-gel",
         "label": "glitter-gel",
-        "hint": "make you want to dance, sing and toss glitter around the room",
+        "hint": "Makes you 'want to dance, sing, and toss glitter around the room'",
         "emoji": "✨",
         "trailer": "Changelog: glitter gel pen",
       },
@@ -385,7 +369,7 @@ You can add this badge to your repository to display that you're using a better-
 
 | Markdown                                                                                                                                                                                                          | Result                                                                                                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `[![better commits is enabled](https://img.shields.io/badge/better--commits-enabled?style=for-the-badge&logo=git&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41)](https://github.com/Everduin94/better-commits)` | [![better commits is enabled](https://img.shields.io/badge/better--commits-enabled?style=for-the-badge&logo=git&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41)](https://github.com/Everduin94/better-commits) |
+| `[![swift commits is enabled](https://img.shields.io/badge/swift--commits-enabled?style=for-the-badge&logo=git&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41)](https://github.com/christina-de-martinez/swift-commits)` | [![swift commits is enabled](https://img.shields.io/badge/swift--commits-enabled?style=for-the-badge&logo=git&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41)](https://github.com/christina-de-martinez/swift-commits) |
 
 ---
 
@@ -406,13 +390,3 @@ Example
    "shell": "c:\\Program Files\\Git\\bin\\bash.exe"
 }
 ```
-
-<h1 align="center">🌟 Sponsors</h1>
-
-<h3 align="center">
-
-[![flotes-g-2](https://github.com/Everduin94/Everduin94/assets/14320878/b0fd0aa5-ca9d-4a2d-8579-7616140927a7)](https://flotes.app)
-
-[Markdown Notetaking - Built for Learning](https://flotes.app)
-
-</h3>
