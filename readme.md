@@ -46,13 +46,6 @@ To better understand these prompts and their intention, read [Conventional Commi
 
 ### Fun Facts
 
-`better-commits` uses native `git` commands under the hood. So any hooks, tools, or staging should work as if it was a normal commit.
-
-Setting `confirm_with_editor=true` will allow you to edit/confirm a commit with your editor.
-
-- For example, to edit with Neovim: `git config --global core.editor "nvim"`
-- For VS Code, `git config --global core.editor "code -n --wait"`
-
 > [!NOTE]<br>
 > Enjoy learning, open source technology, and note-taking? [Join our Discord!](https://discord.gg/grHVnZwYup)
 
