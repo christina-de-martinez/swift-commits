@@ -1,5 +1,5 @@
 {
-  "name": "better-commits",
+  "name": "swift-commits",
   "private": false,
   "version": "1.0.0",
   "description": "A CLI for creating even better commits following the conventional commits specification, but for Swifties",

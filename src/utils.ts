@@ -25,6 +25,7 @@ export const REGEX_SLASH_UND = new RegExp(/\/([A-Z]+-[\[a-zA-Z\]\d]+)_/);
 // - Maybe use order to split and check values
 export const REGEX_SLASH_NUM = new RegExp(/\/(\d+)/);
 export const REGEX_START_NUM = new RegExp(/^(\d+)/);
+import data from "./data";
 
 export const COMMIT_FOOTER_OPTIONS = [
   {

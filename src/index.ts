@@ -21,9 +21,11 @@ import {
   get_git_root,
   REGEX_SLASH_UND,
   REGEX_START_UND,
+  get_random_lyric_from_mood,
 } from "./utils";
 import { git_add, git_status } from "./git";
 import { CUSTOM_SCOPE_KEY, V_FOOTER_OPTIONS } from "./valibot-consts";
+import data from "./data";
 
 main(load_setup());
 
@@ -103,176 +105,27 @@ export async function main(config: Output<typeof Config>) {
       : commit_type;
   }
 
-  if (config.commit_scope.enable) {
-    let commit_scope = await p.select({
-      message: "Select a commit scope",
-      initialValue: config.commit_scope.initial_value,
-      options: config.commit_scope.options,
+  const commit_mood = async (): Promise<keyof typeof data> => {
+    const mood = await p.select({
+      message: "What’s your Swiftie mood?",
+      options: Object.keys(data).map((key) => ({ value: key, label: key })),
     });
-    if (p.isCancel(commit_scope)) process.exit(0);
-    if (commit_scope === CUSTOM_SCOPE_KEY && config.commit_scope.custom_scope) {
-      commit_scope = await p.text({
-        message: "Write a custom scope",
-        placeholder: "",
-      });
-      if (p.isCancel(commit_scope)) process.exit(0);
-    }
-    commit_state.scope = commit_scope;
-  }
+    return mood as keyof typeof data;
+  };
+  if (p.isCancel(commit_mood)) process.exit(0);
 
-  if (config.check_ticket.infer_ticket) {
-    try {
-      const branch = execSync("git branch --show-current", {
-        stdio: "pipe",
-      }).toString();
-      const found: string[] = [
-        branch.match(REGEX_START_UND),
-        branch.match(REGEX_SLASH_UND),
-        branch.match(REGEX_SLASH_TAG),
-        branch.match(REGEX_SLASH_NUM),
-        branch.match(REGEX_START_TAG),
-        branch.match(REGEX_START_NUM),
-      ]
-        .filter((v) => v != null)
-        .map((v) => (v && v.length >= 2 ? v[1] : ""));
-      if (found.length && found[0]) {
-        commit_state.ticket =
-          config.check_ticket.append_hashtag ||
-          config.check_ticket.prepend_hashtag === "Prompt"
-            ? "#" + found[0]
-            : found[0];
-      }
-    } catch (err: any) {
-      // Can't find branch, fail silently
-    }
-  }
+  const mood = await commit_mood();
 
-  if (config.check_ticket.confirm_ticket) {
-    const user_commit_ticket = await p.text({
-      message: commit_state.ticket
-        ? `Ticket / issue inferred from branch ${color.dim("(confirm / edit)")}`
-        : `Add ticket / issue ${OPTIONAL_PROMPT}`,
-      placeholder: "",
-      initialValue: commit_state.ticket,
+  const commit_title = async (): Promise<string> => {
+    const title = await p.select({
+      message: "Pick your commit’s Swiftie title.",
+      options: data[mood].map((key) => ({ value: key, label: key })),
     });
-    if (p.isCancel(user_commit_ticket)) process.exit(0);
-    commit_state.ticket = user_commit_ticket ?? "";
-  }
+    return title as string;
+  };
 
-  if (
-    config.check_ticket.prepend_hashtag === "Always" &&
-    commit_state.ticket &&
-    !commit_state.ticket.startsWith("#")
-  ) {
-    commit_state.ticket = "#" + commit_state.ticket;
-  }
-
-  const commit_title = await p.text({
-    message: "Write a brief title describing the commit",
-    placeholder: "",
-    validate: (value) => {
-      if (!value) return "Please enter a title";
-      const commit_scope_size = commit_state.scope
-        ? commit_state.scope.length + 2
-        : 0;
-      const commit_type_size = commit_state.type.length;
-      const commit_ticket_size = config.check_ticket.add_to_title
-        ? commit_state.ticket.length
-        : 0;
-      if (
-        commit_scope_size +
-          commit_type_size +
-          commit_ticket_size +
-          value.length >
-        config.commit_title.max_size
-      )
-        return `Exceeded max length. Title max [${config.commit_title.max_size}]`;
-    },
-  });
   if (p.isCancel(commit_title)) process.exit(0);
-  commit_state.title = clean_commit_title(commit_title);
-
-  p.note(`Your Swiftie Title: ${color.cyan(commit_state.title)}`);
-
-  if (config.commit_body.enable) {
-    const commit_body = await p.text({
-      message: `Write a detailed description of the changes ${OPTIONAL_PROMPT}`,
-      placeholder: "",
-      validate: (val) => {
-        if (config.commit_body.required && !val)
-          return "Please enter a description";
-      },
-    });
-    if (p.isCancel(commit_body)) process.exit(0);
-    commit_state.body = commit_body ?? "";
-  }
-
-  if (config.commit_footer.enable) {
-    const commit_footer = await p.multiselect({
-      message: `Select optional footers ${SPACE_TO_SELECT}`,
-      initialValues: config.commit_footer.initial_value,
-      options: COMMIT_FOOTER_OPTIONS as {
-        value: Output<typeof V_FOOTER_OPTIONS>;
-        label: string;
-        hint: string;
-      }[],
-      required: false,
-    });
-    if (p.isCancel(commit_footer)) process.exit(0);
-
-    if (commit_footer.includes("breaking-change")) {
-      const breaking_changes_title = await p.text({
-        message: "Breaking changes: Write a short title / summary",
-        placeholder: "",
-        validate: (value) => {
-          if (!value) return "Please enter a title / summary";
-        },
-      });
-      if (p.isCancel(breaking_changes_title)) process.exit(0);
-      const breaking_changes_body = await p.text({
-        message: `Breaking Changes: Write a description & migration instructions ${OPTIONAL_PROMPT}`,
-        placeholder: "",
-      });
-      if (p.isCancel(breaking_changes_body)) process.exit(0);
-      commit_state.breaking_title = breaking_changes_title;
-      commit_state.breaking_body = breaking_changes_body;
-    }
-
-    if (commit_footer.includes("deprecated")) {
-      const deprecated_title = await p.text({
-        message: "Deprecated: Write a short title / summary",
-        placeholder: "",
-        validate: (value) => {
-          if (!value) return "Please enter a title / summary";
-        },
-      });
-      if (p.isCancel(deprecated_title)) process.exit(0);
-      const deprecated_body = await p.text({
-        message: `Deprecated: Write a description ${OPTIONAL_PROMPT}`,
-        placeholder: "",
-      });
-      if (p.isCancel(deprecated_body)) process.exit(0);
-      commit_state.deprecates_body = deprecated_body;
-      commit_state.deprecates_title = deprecated_title;
-    }
-
-    if (commit_footer.includes("closes")) {
-      commit_state.closes = "Closes:";
-    }
-
-    if (commit_footer.includes("custom")) {
-      const custom_footer = await p.text({
-        message: "Write a custom footer",
-        placeholder: "",
-      });
-      if (p.isCancel(custom_footer)) process.exit(0);
-      commit_state.custom_footer = custom_footer;
-    }
-
-    if (!commit_footer.includes("trailer")) {
-      commit_state.trailer = "";
-    }
-  }
+  commit_state.title = await commit_title();
 
   if (config.confirm_with_editor) {
     const options = config.overrides.shell

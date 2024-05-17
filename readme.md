@@ -1,5 +1,8 @@
 <div style="margin-top: 30px">
 <h1 align="center">
+
+![](/src/swiftie-commit.jpeg)
+
 Swift Commits
 
 [![swift commits is enabled](https://img.shields.io/badge/swift--commits-enabled?style=for-the-badge&logo=git&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41)](https://github.com/christina-de-martinez/swift-commits)
@@ -84,21 +87,21 @@ Better-commits (& better-branch) are highly flexible with sane defaults. These o
         "label": "quill",
         "hint": "Makes you feel 'all old fashioned, like you’re a 19th century poet crafting your next sonnet by candlelight'",
         "emoji": "🪶",
-        "trailer": "Changelog: quill pen",
+        "trailer": "Changelog: quill pen"
       },
       {
         "value": "fountain",
         "label": "fountain",
         "hint": "'Modern, personal stories written like poetry'",
         "emoji": "🖋️",
-        "trailer": "Changelog: fountain pen",
+        "trailer": "Changelog: fountain pen"
       },
       {
         "value": "glitter-gel",
         "label": "glitter-gel",
         "hint": "Makes you 'want to dance, sing, and toss glitter around the room'",
         "emoji": "✨",
-        "trailer": "Changelog: glitter gel pen",
+        "trailer": "Changelog: glitter gel pen"
       },
       {
         "value": "",
@@ -367,8 +370,8 @@ Setting `confirm_with_editor=true` will allow you to edit/confirm a commit with 
 
 You can add this badge to your repository to display that you're using a better-commits repository config
 
-| Markdown                                                                                                                                                                                                          | Result                                                                                                                                                                                                          |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Markdown                                                                                                                                                                                                                  | Result                                                                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `[![swift commits is enabled](https://img.shields.io/badge/swift--commits-enabled?style=for-the-badge&logo=git&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41)](https://github.com/christina-de-martinez/swift-commits)` | [![swift commits is enabled](https://img.shields.io/badge/swift--commits-enabled?style=for-the-badge&logo=git&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41)](https://github.com/christina-de-martinez/swift-commits) |
 
 ---
