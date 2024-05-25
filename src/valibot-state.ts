@@ -10,6 +10,8 @@ import {
   V_FOOTER_OPTIONS,
 } from "./valibot-consts";
 
+import data from "./data";
+
 export const Config = v.object({
   check_status: v.optional(v.boolean(), true),
   commit_type: v.transform(
@@ -215,6 +217,7 @@ export const CommitState = v.optional(
   v.object({
     type: v.optional(v.string(), ""),
     scope: v.optional(v.string(), ""),
+    era: v.optional(v.picklist(Object.keys(data))),
     title: v.optional(v.string(), ""),
     body: v.optional(v.string(), ""),
     closes: v.optional(v.string(), ""),

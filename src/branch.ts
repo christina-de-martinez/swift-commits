@@ -233,6 +233,4 @@ function set_user_cache(val: string): void {
   }
 }
 
-// TODO: No idea what's happening here
-// If you don't use CommitState, (even in unreachable code), parse fails on Config
 CommitState;
