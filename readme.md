@@ -15,10 +15,10 @@ Swift Commits
 A CLI for writing better commits—made by and for Swifties.
 </p>
 
-## ✨ How it works
+## ✨ As easy as knowing all the words to your old favorite song
 
 - Choose between [quill, fountain pen, or glitter gel pen](https://youtu.be/xMy8ZGlKf1U?si=kFeh3DoaALLQu3DN&t=276) commit types.
-- Select which album encapsulates the vibe of your code—that's your scope.
+- Select which era your code belongs in—that's your scope.
 - Choose from pre-selected lyrics that match your type and scope—your new commit message.
 - Get commit messages like these:
 
@@ -29,13 +29,11 @@ glitter-gel(fearless): It's flawless, really something.
 ```
 
 
-## 📦 Installation
+## 🚀 Is it too soon to do this yet?
 
 ```sh
 npm install -g swift-commits
 ```
-
-## 🚀 Usage
 
 When you're ready to commit. To run the CLI in your terminal:
 
@@ -47,9 +45,7 @@ npx swift-commits
 
 It will prompt a series of questions. These prompts will build a commit message, which you can preview, before confirming the commit.
 
-## 🌌 Mildly Interesting
-
-### Fun Facts
+## 🌌 Long live all the magic we made
 
 You can add this badge to your repository to display that you're using a swift-commits repository config
 
