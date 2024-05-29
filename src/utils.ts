@@ -178,7 +178,3 @@ export function clean_commit_title(title: string): string {
   }
   return title.trim();
 }
-
-export function get_random_lyric_from_mood(mood: keyof typeof data): string {
-  return data[mood][Math.floor(Math.random() * data[mood].length)];
-}

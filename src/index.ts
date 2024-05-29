@@ -10,21 +10,10 @@ import {
   load_setup,
   addNewLine,
   SPACE_TO_SELECT,
-  REGEX_SLASH_TAG,
-  REGEX_SLASH_NUM,
-  REGEX_START_TAG,
-  REGEX_START_NUM,
-  OPTIONAL_PROMPT,
-  clean_commit_title,
-  COMMIT_FOOTER_OPTIONS,
   infer_type_from_branch,
   get_git_root,
-  REGEX_SLASH_UND,
-  REGEX_START_UND,
-  get_random_lyric_from_mood,
 } from "./utils";
 import { git_add, git_status } from "./git";
-import { CUSTOM_SCOPE_KEY, V_FOOTER_OPTIONS } from "./valibot-consts";
 import data from "./data";
 
 main(load_setup());
@@ -105,21 +94,31 @@ export async function main(config: Output<typeof Config>) {
       : commit_type;
   }
 
-  const commit_mood = async (): Promise<keyof typeof data> => {
-    const mood = await p.select({
-      message: "What’s your Swiftie mood?",
-      options: Object.keys(data).map((key) => ({ value: key, label: key })),
-    });
-    return mood as keyof typeof data;
-  };
-  if (p.isCancel(commit_mood)) process.exit(0);
+  const commit_era = async () => {
+    const matching_eras = Object.entries(data).reduce((acc, [key, val]) => {
+      if (val[commit_state.type as keyof typeof val].length > 0) {
+        return [...acc, key];
+      }
+      return acc;
+    }, [] as string[]);
 
-  const mood = await commit_mood();
+    return await p.select({
+      message: "Which era would you like to commit to?",
+      options: matching_eras.map((key) => ({ value: key, label: key })),
+    });
+  };
+  if (p.isCancel(commit_era)) process.exit(0);
+
+  commit_state.era = (await commit_era()) as string;
 
   const commit_title = async (): Promise<string> => {
     const title = await p.select({
-      message: "Pick your commit’s Swiftie title.",
-      options: data[mood].map((key) => ({ value: key, label: key })),
+      message: "Pick your commit’s title.",
+      // @ts-ignore
+      options: data[commit_state.era][commit_state.type].map((key: string) => ({
+        value: key,
+        label: key,
+      })),
     });
     return title as string;
   };
@@ -142,7 +141,6 @@ export async function main(config: Output<typeof Config>) {
         true,
         false,
       )}" ${trailer} --edit`,
-      options,
     );
     process.exit(0);
   }
@@ -203,11 +201,9 @@ function build_commit_string(
       : commit_state.type;
   }
 
-  if (commit_state.scope) {
-    const scope = colorize
-      ? color.cyan(commit_state.scope)
-      : commit_state.scope;
-    commit_string += `(${scope})`;
+  if (commit_state.era) {
+    const era = colorize ? color.cyan(commit_state.era) : commit_state.era;
+    commit_string += `(${era})`;
   }
 
   let title_ticket = commit_state.ticket;
