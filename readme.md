@@ -38,9 +38,6 @@ npx swift-commits
 ```
 
 It will prompt a series of questions. These prompts will build a commit message, which you can preview, before confirming the commit.
-Some of the values in these prompts will be infered by your branch name and auto populated. You can adjust this in your `.better-commits.json` configuration file.
-
-To better understand these prompts and their intention, read [Conventional Commits Summary](https://www.conventionalcommits.org/en/v1.0.0-beta.4/#summary)
 
 ## 🌌 Mildly Interesting
 
