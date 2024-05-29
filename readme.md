@@ -12,14 +12,14 @@ Swift Commits
 </div>
 
 <p align="center">
-A CLI for writing even better commits, with a Swiftie twist.
+A CLI for writing better commits—made by and for Swifties.
 </p>
 
-## ✨ Features
+## ✨ How it works
 
-- Choose between [quill, fountain pen, or glitter gel pen](https://youtu.be/xMy8ZGlKf1U?si=kFeh3DoaALLQu3DN&t=276) commit scopes
-- Select how you feel about your code and get an assigned lyric as the commit message
-- Only for true Swifties
+- Choose between [quill, fountain pen, or glitter gel pen](https://youtu.be/xMy8ZGlKf1U?si=kFeh3DoaALLQu3DN&t=276) commit types.
+- Select which album encapsulates the vibe of your code—that's your scope.
+- Choose from pre-selected lyrics that match your type and scope.
 
 ## 📦 Installation
 
