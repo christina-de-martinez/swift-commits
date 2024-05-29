@@ -46,10 +46,7 @@ To better understand these prompts and their intention, read [Conventional Commi
 
 ### Fun Facts
 
-> [!NOTE]<br>
-> Enjoy learning, open source technology, and note-taking? [Join our Discord!](https://discord.gg/grHVnZwYup)
-
-You can add this badge to your repository to display that you're using a better-commits repository config
+You can add this badge to your repository to display that you're using a swift-commits repository config
 
 | Markdown                                                                                                                                                                                                                  | Result                                                                                                                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
