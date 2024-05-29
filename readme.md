@@ -12,14 +12,14 @@ Swift Commits
 </div>
 
 <p align="center">
-A CLI for writing even better commits, with a Swiftie twist.
+A CLI for writing better commits—made by and for Swifties.
 </p>
 
-## ✨ Features
+## ✨ How it works
 
-- Choose between [quill, fountain pen, or glitter gel pen](https://youtu.be/xMy8ZGlKf1U?si=kFeh3DoaALLQu3DN&t=276) commit scopes
-- Select how you feel about your code and get an assigned lyric as the commit message
-- Only for true Swifties
+- Choose between [quill, fountain pen, or glitter gel pen](https://youtu.be/xMy8ZGlKf1U?si=kFeh3DoaALLQu3DN&t=276) commit types.
+- Select which album encapsulates the vibe of your code—that's your scope.
+- Choose from pre-selected lyrics that match your type and scope—your new commit message.
 
 ## 📦 Installation
 
@@ -38,18 +38,12 @@ npx swift-commits
 ```
 
 It will prompt a series of questions. These prompts will build a commit message, which you can preview, before confirming the commit.
-Some of the values in these prompts will be infered by your branch name and auto populated. You can adjust this in your `.better-commits.json` configuration file.
-
-To better understand these prompts and their intention, read [Conventional Commits Summary](https://www.conventionalcommits.org/en/v1.0.0-beta.4/#summary)
 
 ## 🌌 Mildly Interesting
 
 ### Fun Facts
 
-> [!NOTE]<br>
-> Enjoy learning, open source technology, and note-taking? [Join our Discord!](https://discord.gg/grHVnZwYup)
-
-You can add this badge to your repository to display that you're using a better-commits repository config
+You can add this badge to your repository to display that you're using a swift-commits repository config
 
 | Markdown                                                                                                                                                                                                                  | Result                                                                                                                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
