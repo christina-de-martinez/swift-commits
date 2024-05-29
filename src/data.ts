@@ -29,7 +29,7 @@ const data = {
   },
   fearless: {
     fountain: [
-      "It's 2 a.m. and I'm cursing your name",
+      "It's 2 a.m. and I'm cursing your name.",
       "It's the fight of our lives, but we'll stand up champions tonight.",
       "Wish you could go back and tell yourself what you know now.",
     ],
@@ -70,7 +70,7 @@ const data = {
     "glitter-gel": [
       "It isn't love, it isn't hate, it's just indifference.",
       "Nobody understands.",
-      "I hate accidents",
+      "I hate accidents.",
       "Why are you mad?",
       "I don't wanna do this to you.",
     ],
@@ -85,8 +85,8 @@ const data = {
     fountain: [
       "I think there's been a glitch, a brief interruption, a slight malfunction.",
       "You're on your own, kid, you always have been.",
-      `You say, "I don't understand," and I say, "I know you don't"`,
-      "Dear reader, burn all the files",
+      `You say, "I don't understand," and I say, "I know you don't."`,
+      "Dear reader, burn all the files.",
     ],
     "glitter-gel": [
       "Karma is the breeze in my hair on the weekend.",
@@ -95,7 +95,7 @@ const data = {
       "I'm so in love that I might stop breathing.",
     ],
     quill: [
-      "It's me, hi, I'm the problem it's me",
+      "It's me, hi, I'm the problem it's me.",
       "It was all by design, cause I'm a mastermind.",
       "It's like snow at the beach, weird but it was beautiful.",
     ],
@@ -184,8 +184,8 @@ const data = {
   },
   "taylor-swift": {
     fountain: [
-      "I'm still trying to figure it out",
-      "the time taken up, but there's never enough",
+      "I'm still trying to figure it out.",
+      "the time taken up, but there's never enough.",
     ],
     "glitter-gel": [
       "Words that nobody knows.",
