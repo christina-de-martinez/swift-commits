@@ -19,7 +19,7 @@ A CLI for writing better commits—made by and for Swifties.
 
 - Choose between [quill, fountain pen, or glitter gel pen](https://youtu.be/xMy8ZGlKf1U?si=kFeh3DoaALLQu3DN&t=276) commit types.
 - Select which album encapsulates the vibe of your code—that's your scope.
-- Choose from pre-selected lyrics that match your type and scope.
+- Choose from pre-selected lyrics that match your type and scope—your new commit message.
 
 ## 📦 Installation
 
