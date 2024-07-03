@@ -1,7 +1,7 @@
 {
   "name": "swift-commits",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CLI for creating even better commits following the conventional commits specification, but for Swifties",
   "author": "Christina Martinez (https://github.com/christina-de-martinez) and Chris Pennington (https://github.com/coding-in-public)",
   "type": "module",
@@ -15,9 +15,9 @@
   ],
   "main": "dist/index.js",
   "bin": {
-    "better-commits-init": "./dist/init.js",
-    "better-commits": "./dist/index.js",
-    "better-branch": "./dist/branch.js",
+    "swift-commits-init": "./dist/init.js",
+    "swift-commits": "./dist/index.js",
+    "swift-branch": "./dist/branch.js",
     "bcommits": "./dist/index.js",
     "git-bc": "./dist/index.js"
   },
