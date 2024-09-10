@@ -1,8 +1,8 @@
 {
   "name": "swift-commits",
   "private": false,
-  "version": "1.0.2",
-  "description": "A CLI for creating even better commits following the conventional commits specification, but for Swifties",
+  "version": "1.0.3",
+  "description": "A CLI for creating conventional commits, but for Swifties",
   "author": "Christina Martinez (https://github.com/christina-de-martinez) and Chris Pennington (https://github.com/coding-in-public)",
   "type": "module",
   "sideEffects": false,
