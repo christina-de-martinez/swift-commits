@@ -7,7 +7,7 @@ import { Output, ValiError, parse } from "valibot";
 import { Config } from "./valibot-state";
 import { V_BRANCH_ACTIONS } from "./valibot-consts";
 
-export const CONFIG_FILE_NAME = ".better-commits.json";
+export const CONFIG_FILE_NAME = ".swift-commits.json";
 export const SPACE_TO_SELECT = `${color.dim("(<space> to select)")}`;
 export const A_FOR_ALL = `${color.dim(
   "(<space> to select, <a> to select all)",
@@ -57,7 +57,7 @@ export const BRANCH_ACTION_OPTIONS: {
 
 /* LOAD */
 export function load_setup(
-  cli_name = " better-commits ",
+  cli_name = " swift-commits ",
 ): Output<typeof Config> {
   console.clear();
   p.intro(`${color.bgCyan(color.black(cli_name))}`);
