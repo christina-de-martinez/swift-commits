@@ -195,7 +195,7 @@ function build_branch(
 
 function get_user_from_cache(): string {
   try {
-    const config_store = new Configstore("better-commits");
+    const config_store = new Configstore("swift-commits");
     return config_store.get("username") ?? "";
   } catch (err) {
     p.log.warn(
@@ -226,7 +226,7 @@ function verify_branch_name(branch_name: string): string {
 
 function set_user_cache(val: string): void {
   try {
-    const config_store = new Configstore("better-commits");
+    const config_store = new Configstore("swift-commits");
     config_store.set("username", val);
   } catch (err) {
     // fail silently, user has likely already seen guidance via get exceptions at this point
